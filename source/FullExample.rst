@@ -1,4 +1,4 @@
-============
+===========
 Full Example
 ============
 
@@ -57,5 +57,27 @@ BIRD
 ----
 
 Once IOS finished, re-run bgpq3 with "-b" for both prefix lists and as-sets.
+
+OpenBGPD
+----
+
+Generating the prefix via bgpq3 (In this case, we're using a named prefix list filter so we can refer to this by name)
+
+.. code-block:: none
+  # bgpq3  -A -l AS_64512 -B AS64512
+  AS_64512="prefix { \
+           192.0.2.0/24 \ 
+  }"
+
+Which we can then refer to in the OpenBGPD configuration file via: 
+
+.. code-block:: none
+  allow quick from AS 112 prefix { $AS_64512 }
+
+Then we can clear the neighbour: 
+
+.. code-block:: none
+  bgpctl neighbor <name> clear
+
 
 and more...

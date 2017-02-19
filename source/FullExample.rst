@@ -1,4 +1,4 @@
-===========
+============
 Full Example
 ============
 
@@ -72,7 +72,7 @@ Generating the prefix via bgpq3 (In this case, we're using a named prefix list f
 Which we can then refer to in the OpenBGPD configuration file via: 
 
 .. code-block:: none
-  allow quick from AS 112 prefix { $AS_64512 }
+  allow quick from AS 64512 prefix { $AS_64512 }
 
 Then we can clear the neighbour: 
 
